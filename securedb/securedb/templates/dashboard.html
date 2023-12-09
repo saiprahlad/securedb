@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Dashboard</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>Welcome, {{ user.username }}!</h3>
+                        <p>You are now logged in.</p>
+
+                        <h4>Health Records</h4>
+                        {% for record in records %}
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p>First Name: {{ record.first_name }}</p>
+                                    <p>Last Name: {{ record.last_name }}</p>
+                                    <!-- Add other fields as needed -->
+                                    <p>Hash Value: {{ record.hash_value }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <a href="{% url 'add_health_record' %}" class="btn btn-primary">Add Health Record</a>
+                        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

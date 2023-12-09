@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
 class HealthRecord(models.Model):
@@ -31,5 +31,10 @@ class CustomUser(AbstractUser):
 
     role = models.CharField(max_length=1, choices=ROLES, default='R')
 
+    # Add related_name to avoid clashes
+    groups = models.ManyToManyField(Group, related_name='customuser_set', blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name='customuser_set', blank=True)
+    
     def __str__(self):
         return self.username
+    

@@ -18,10 +18,10 @@ Database as a service has become an essential cloud service, and this project fo
 
 ## Features
 
-- User authentication with username/password.
-- Basic access control for two user groups (Group H and Group R).
-- Query integrity protection to detect modified or fake data.
-- Support for creating and querying healthcare records.
+- **User Authentication**: Users can authenticate using a username and password.
+- **Basic Access Control**: Two user groups (Group H and Group R) with different access privileges.
+- **Query Integrity Protection**: Mechanism to detect modified or fake data.
+- **Healthcare Record Management**: Support for creating and querying healthcare records.
 
 ## Installation
 
@@ -38,18 +38,24 @@ Database as a service has become an essential cloud service, and this project fo
     pip install -r requirements.txt
     ```
 
-3. Apply migrations:
+3. Run initial setup:
+
+    ```bash
+    python Runmefirst.py
+    cd securedb
+    ```
+
+4. Apply migrations:
 
     ```bash
     python manage.py migrate
     ```
-    
-4. Seed the database:
-   
+
+5. Seed the database:
+
    ```bash
    python manage.py seed_healthdata
    ```
-
 
 ## Usage
 
@@ -65,8 +71,8 @@ Database as a service has become an essential cloud service, and this project fo
 
 The security features implemented in this project include:
 
-- User Authentication
-- Basic Access Control
-- Query Integrity Protection
+- **User Authentication**: Users must authenticate using a valid username and password.
+- **Basic Access Control**: Two user groups (Group H and Group R) with different access levels.
+- **Query Integrity Protection**: Ensures that data integrity is maintained by detecting any modifications or fake data.
 
 Refer to the [Security Features](#security-features) section for more details.
